@@ -3,13 +3,18 @@
 
     angular
         .module('bugsService', ['ngResource'])
-        .factory('Bugs', Bugs)
+        .factory('Bugs', Bugs);
         
 
-    Bugs.$inject = ['$resource'];
+    Bugs.$inject = ['$http'];
 
-    function Bugs($resource) {
-        var x = $resource('/api/bugs/:id');
-        return x;
+    function Bugs($http) {        
+        return {
+                list: list         
+            };
+            
+            function list() {
+                return $http.get("js/mock/bugs.js");
+            }
     }
 })();

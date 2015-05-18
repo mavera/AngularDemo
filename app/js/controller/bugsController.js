@@ -14,7 +14,10 @@
 
         function activate() {
             vm.title = 'bugsController';
-            vm.bugs = ['ddd','aaa']; //Bugs.query();            
+//            vm.bugs = ['ddd','aaa'];             
+            Bugs.list().then(function (res) {
+                 vm.bugs = angular.fromJson(res.data);   
+            });
         }
     }
 })();

@@ -19,8 +19,9 @@
                 </tr> 
             </thead>
             <tbody>
-                <tr ng-repeat="bug in vm.bugs">
-                    <td>{{bug}}</td>
+                <tr ng-repeat="x in vm.bugs track by $index">
+                    <td>{{x.email}}</td>
+                    <td>{{x.name}}</td>
                 </tr>
             </tbody>
         </table>
